@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "count-flow-map"
+version = "0.4.0"
+description = "Joint stochastic flow-map matching for count-valued data"
+requires-python = ">=3.9"
+dependencies = [
+  "torch>=2.2",
+  "numpy>=1.24",
+  "matplotlib>=3.7",
+  "scipy>=1.10",
+  "pandas>=2.0",
+  "jupyter>=1.0",
+  "nbformat>=5.9",
+  "tqdm>=4.65",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["countflow*"]
+
+[project.optional-dependencies]
+applications = [
+  "datasets>=2.18",
+  "huggingface-hub>=0.23",
+  "pyarrow>=14",
+  "scikit-learn>=1.3",
+  "anndata>=0.10",
+]

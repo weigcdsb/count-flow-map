@@ -1,0 +1,56 @@
+{
+  "version": "scrna-matched-baselines-v1",
+  "seeds": [42, 123, 2026],
+  "architecture": {
+    "hidden_layers": 3,
+    "hidden_dim": 512,
+    "activation": "silu",
+    "batch_norm": false,
+    "dropout": 0.0,
+    "latent_dim": 128,
+    "context_hidden_dim": 256,
+    "context_output_dim": 256
+  },
+  "validation_checkpoints": 10,
+  "models": {
+    "nbvae": {
+      "steps": 50000,
+      "batch_size": 64,
+      "learning_rate": 0.0002,
+      "weight_decay": 0.00001,
+      "kl_warmup_steps": 10000,
+      "log_every": 500
+    },
+    "cpa": {
+      "steps": 50000,
+      "batch_size": 256,
+      "learning_rate": 0.0003,
+      "weight_decay": 0.0000004,
+      "adversary_width": 64,
+      "adversary_depth": 2,
+      "doser_width": 128,
+      "doser_depth": 2,
+      "autoencoder_lr": 0.0003,
+      "adversary_lr": 0.0003,
+      "doser_lr": 0.004,
+      "autoencoder_wd": 0.0000004,
+      "adversary_wd": 0.0000004,
+      "doser_wd": 0.0000001,
+      "reg_adversary": 60.0,
+      "penalty_adversary": 60.0,
+      "adversary_steps": 3,
+      "log_every": 500
+    },
+    "scgen_vae": {
+      "steps": 30000,
+      "epochs": 100,
+      "batch_size": 64,
+      "learning_rate": 0.001,
+      "weight_decay": 0.000001,
+      "adam_eps": 0.01,
+      "kl_weight": 0.00005,
+      "scvidr_ridge": 0.0,
+      "log_every": 500
+    }
+  }
+}
